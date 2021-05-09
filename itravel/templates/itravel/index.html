@@ -123,8 +123,14 @@
                 </div>
             </a>
             {% endfor %}
-            
+           
         </div>
+    <!-- {% if request.session.recent_destinations %}
+        <div class="tripTitle">Recent Destinations</div>
+    {% for id, name in request.session.recent_destinations.items %}
+        <li><a href="{% url 'dest' dest.id %}">{{name}}</a></li>
+    {% endfor %}
+    {% endif %} -->
     </div>
     <br>
     <br>

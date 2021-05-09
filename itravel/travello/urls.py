@@ -7,6 +7,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('',views.homePage,name="home"),
     path('dest/<int:dest_id>',views.dest_details,name="dest"),
+    path('add',views.dest_add,name='add_destination'),
     path('view',views.view_profile),
     path('edit',views.edit_profile),
     path('delete',views.delete_profile),
