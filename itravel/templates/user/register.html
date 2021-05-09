@@ -1,0 +1,70 @@
+{% extends 'user/main.html' %}
+{% load static %}
+{% block content %}
+    <!-- Register Form -->
+
+    <div class="container">
+        <div class="row myBox">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="innerBox">
+                    <div class="row">
+                        <div class="col-md-5 firstCol">
+                            <div class="titleTag">Welcome to Travello.</div>
+                            <div class="descriptionTag">Are you ready to explore world?</div>
+                        </div>
+                        <div class="col-md-7 secondCol">
+                            <div class="formHead">Sign Up</div>
+                            <form method="POST" action="{% url 'register' %}">
+                                {% csrf_token %}
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <input name="username" type="text" placeholder="Username" class="inputfield" required>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <input name="email" type="email" placeholder="Email" class="inputfield" required>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <input name="firstname" type="text" placeholder="First Name" class="inputfield" required>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <input name="lastname" type="text" placeholder="Last Name" class="inputfield" required>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <input name="password" type="password" placeholder="Password" class="inputfield" required>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <input name="password2" type="password" placeholder="Confirm Password" class="inputfield" required>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <button class="registerBtn">Sign Up</button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% for message in messages %}
+        <strong><h3>{{message}}</h3></strong>
+    {% endfor %}
+{% endblock %}
+    

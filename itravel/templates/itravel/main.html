@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Travel The World || Home Page</title>
+    <link rel="stylesheet" href="{% static 'bootstrap-3.3.7-dist/css/bootstrap.min.css' %}">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js "></script>
+    <script src="{% static 'bootstrap-3.3.7-dist/js/bootstrap.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+
+
+</head>
+
+<body>
+    <div class="header">
+
+        <!-- Collapsive Navbar -->
+
+        <div class="navbar" id="navb" align="center">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <div class="navbar-brand">
+                        Travel The world
+                    </div>
+                    <button class="navbar-toggle" data-toggle="collapse" data-target="#myNav">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse" id="myNav">
+                    <ul class="nav navbar-nav myNav">
+                        <a style="color:white;" href="{% url 'home' %}"><li class="underline">Home</li></a>
+                        <a style="color:white;" href=""><li class="underline">About Us</li></a>
+                        <a style="color:white;" href=""><li class="underline">Services</li></a>
+                        <a style="color:white;" href=""><li class="underline">News</li></a>
+                        <a style="color:white;" href=""><li class="underline">Contact</li></a>
+                        {% if user.is_authenticated %}
+                            <a style="color:white;"><li class="underline">{{user.first_name}}</li></a>
+                            <a style="color:white;" href="{% url 'logout' %}"><li class="underline">Logout</li></a>
+                        {% else %}
+                            
+                            <a style="color:white;" href="{% url 'register' %}"><li class="underline">Register</li></a>
+                            <a style="color:white;" href="{% url 'login_page' %}"><li class="underline">Login</li></a>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        {% block content %}
+        {% endblock %}
+                <!-- Upcoming Trips -->
+
+        <div id="section3" class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <img src="{% static 'images/news_1.jpg' %}" alt="" class="newsPic">
+                        </div>
+                        <div class="col-md-8 col-md-offset-1">
+                            <div class="newsDisplay">
+                                <div class="newsMonth">
+                                    <span class="newsDate">02</span> JUNE</div>
+                                <div class="newsContent">Best trips to travel light</div>
+                                <div class="newsCategory">LIFESTYLE AND TRAVEL</div>
+                                <br>
+                                <div class="newsDescription">Pellentesque sit amet elementum ccumsan sit amet mattis eget, tristique at leo. Vivamus massa.Tempor
+                                    massa et laoreet.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <img src="{% static 'images/news_2.jpg' %}" alt="" class="newsPic">
+                        </div>
+                        <div class="col-md-8 col-md-offset-1">
+                            <div class="newsDisplay">
+                                <div class="newsMonth">
+                                    <span class="newsDate">01</span> JUNE</div>
+                                <div class="newsContent">Best trips to travel light</div>
+                                <div class="newsCategory">LIFESTYLE AND TRAVEL</div>
+                                <br>
+                                <div class="newsDescription">Tempor massa et laoreet malesuada. Pellentesque sit amet elementum ccumsan sit amet mattis
+                                    eget, tristique at leo.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <img src="{% static 'images/news_3.jpg' %}" alt="" class="newsPic">
+                        </div>
+                        <div class="col-md-8 col-md-offset-1">
+                            <div class="newsDisplay">
+                                <div class="newsMonth">
+                                    <span class="newsDate">29</span> MAY</div>
+                                <div class="newsContent">Best trips to travel light</div>
+                                <div class="newsCategory">LIFESTYLE AND TRAVEL</div>
+                                <br>
+                                <div class="newsDescription">Vivamus massa.Tempor massa et laoreet malesuada. Aliquam nulla nisl, accumsan sit amet mattis.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+
+                <!-- Offers available -->
+
+                <div class="col-md-4 ">
+                    <div class="discount">
+                        <div class="pinkBox"></div>
+                        <div class="discountTag">Get a 20% Discount</div>
+                        <div class="discountDescription">Buy Your Vacation Online Now</div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        
+        <!-- News Letter -->
+
+        <div>
+            <div class="newsLetter">
+                <div class="newsletterTitle">Subscribe to our newsletter to get the latest trends & news</div>
+                <br>
+                <div class="newsLetterSubtitle">Join our database NOW!</div>
+                <br>
+                <br>
+                <div class="container">
+                    <div class="row">
+                        <form class="display" action="">
+                            <div class="col-md-3 col-md-offset-2">
+                                <input type="text" placeholder="Name" class="inputNewsLetter">
+                            </div>
+                            <div class="col-md-3">
+                                <input type="text" placeholder="Your Email" class="inputNewsLetter">
+                            </div>
+                            <div class="col-md-3">
+                                <button class="btn  myBtn">SUBSCRIBE</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <br>
+                <br>
+                <div class="row">
+                    <div class="col-md-4 myClass">
+                        <img src="{% static 'images/sign.svg' %}" alt="" class="newsIconPic">
+                        <div class="newsLetterSub">GIVE US A CALL</div>
+                        <div class="newsLetterText">Landline: +44 5567 32 664 567</div>
+                        <div class="newsLetterText">Mobile: +44 5567 30 674 567 </div>
+                    </div>
+                    <div class="col-md-4 myClass">
+                        <img src="{% static 'images/trekking.svg' %}" alt="" class="newsIconPic">
+                        <div class="newsLetterSub">COME & DROP BY</div>
+                        <div class="newsLetterText">4124 Bames Street,Sanford</div>
+                        <div class="newsLetterText">FL 32771</div>
+                    </div>
+                    <div class="col-md-4 myClass">
+                        <img src="{% static 'images/around.svg' %}" alt="" class="newsIconPic">
+                        <div class="newsLetterSub">SEND US A MESSAGE</div>
+                        <div class="newsLetterText">youremail@gmail.com</div>
+                        <div class="newsLetterText">office@yourbussinessname.com</div>
+                    </div>
+                </div>
+                <br>
+                <div class="footer">Copyright 2020 All rights reserved | This template is made by ETA</div>
+            </div>
+        </div>
+</body>
+<script src="{% static 'js/index.js' %}"></script>
+
+</html>

@@ -1,0 +1,44 @@
+{% extends 'user/main.html' %}
+{% load static %}
+{% block content %}
+    <div class="container">
+        <div class="row myBox">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="innerBox">
+                    <div class="row">
+                        <div class="col-md-4 col-md-offset-1">
+                            <div class="titleTag">Travel The World</div>
+                        </div>
+                        <div class="col-md-7">
+                            <div class="formHead">Login</div>
+                            <form method="POST" action="{% url 'login_page' %}">
+                                {% csrf_token %}
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <input name="username" type="text" placeholder="Username" class="inputfield" required>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <input name="password" type="password" placeholder="Password" class="inputfield" required>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <button class="loginBtn">Login</button>
+                                        </div>
+                                    </div>
+                                    <br><br>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
+        
+   

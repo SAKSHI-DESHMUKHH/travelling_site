@@ -1,0 +1,156 @@
+{% extends 'itravel/main.html' %}
+{% load static %}
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="motto">
+                Let us take you away
+            </div>
+
+            <!-- Side Menu -->
+
+            <div class="sideTabs">
+                <a href="#" data-scroll-to="#section1" class="underline">Offers &nbsp; 01</a>
+                <br>
+                <a href="#" data-scroll-to="#section2" class="underline">Testimonials &nbsp; 02</a>
+                <br>
+                <a href="#" data-scroll-to="#section3" class="underline">Latest &nbsp; 03</a>
+            </div>
+
+            <!-- Search for your Trip -->
+
+            <div class="searchForm">
+                <br>
+                <div>
+                    <br>
+                    <div class="searchFormTitle">Search for your Trip</div>
+                    <br>
+                    <div class="searchFormContent">
+                        <form>
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="  col-md-3 ">
+                                        <input type="text" placeholder="City" class="inputSearch">
+                                    </div>
+                                    <div class=" col-md-2 ">
+                                        <input type="text" placeholder="Departure" class="inputSearch">
+                                    </div>
+                                    <div class=" col-md-2 ">
+                                        <input type="text" placeholder="Arrival" class="inputSearch">
+                                    </div>
+                                    <div class=" col-md-3 ">
+                                        <input type="text" placeholder="Budget" class="inputSearch">
+                                    </div>
+                                    <div class=" col-md-2">
+                                        <button class="btn searchButton">Search</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <!-- List of Services -->
+
+        <div class="row">
+            <div class="intro">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="col-md-4 myClass">
+                            <img class="iconPic" src="{% static 'images/beach.svg' %}" alt="">
+                        </div>
+                        <div class="col-md-8 myClass">
+                            <div class="contentTitle">Top Destinations</div>
+                            <div class="contentSubtitle">Nulla pretium tincidunt felis, nec.</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="row">
+                            <div class="col-md-4 myClass">
+                                <img class="iconPic" src="{% static 'images/wallet.svg' %}" alt="">
+                            </div>
+                            <div class="col-md-8 myClass">
+                                <div class="contentTitle">The Best Prices</div>
+                                <div class="contentSubtitle">Sollicitudin mauris lobortis in.</div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-4">
+                        <div class="col-md-4 myClass">
+                            <img class="iconPic" src="{% static 'images/suitcase.svg' %}" alt="">
+                        </div>
+                        <div class="col-md-8 myClass">
+                            <div class="contentTitle">Amazing Services</div>
+                            <div class="contentSubtitle">Nulla pretium tincidunt felis, nec.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <hr style="margin: 60px;height: 1px;background:lightgray">
+    <br>
+    <br>
+    <br>
+    <div class="motto1" id="section1">SIMPLY AMAZING PLACES</div>
+    <br>
+    <div class="motto2">Popular Destinations</div>
+
+    <!-- List of Trips -->
+
+    <div class="tripList">
+        <div class="row">
+            {% for dest in dests %}
+            <a href="{% url 'dest' dest.id %}" style="color:blck">
+                <div class="col-md-4 trip">
+                {% if dest.offer %}
+                    <span class="notify-badge">Offer</span>
+                {% endif %}
+                <img src="{{dest.image.url}}" alt="" class="tripImage">
+                <div class="tripTitle">{{dest.name}}</div>
+                <div class="tripDescription">{{dest.desc}}</div>
+                <div class="tripCost">From ${{dest.price}}</div>
+                </div>
+            </a>
+            {% endfor %}
+            
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <!-- Motto for the page -->
+
+    <div id="section2" class="container coloredMotto">
+        <div class="motto3">SIMPLY AMAZING PLACES</div>
+        <div class="motto4"> Testimonials</div>
+        <br>
+        <br>
+        <div class="motto5">Lorem ipsum dolor sit amet,consectetur adipiscing elit.lobortis dolor.Cras placerat lectus a posuere aliquet.Curabitur
+            quis vehicula odio.</div>
+        <div class="motto6">JOHN TURNER,
+            <span class="innermotto6"> CLIENT</span>
+        </div>
+        <br>
+        <br>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>   
+{% endblock %}
+
