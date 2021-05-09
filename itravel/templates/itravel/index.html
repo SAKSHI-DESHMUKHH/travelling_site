@@ -120,6 +120,8 @@
                 <div class="tripTitle">{{dest.name}}</div>
                 <div class="tripDescription">{{dest.desc}}</div>
                 <div class="tripCost">From ${{dest.price}}</div>
+                <a href="{% url 'update' dest.id %}" class="btn btn-outline-dark btn-sm m-1">Update</a>
+                <a href="{% url 'delete' dest.id %}" class="btn btn-outline-dark btn-sm m-1">Delete</a>
                 </div>
             </a>
             {% endfor %}

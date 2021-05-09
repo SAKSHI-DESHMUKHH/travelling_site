@@ -11,3 +11,8 @@ class DestinationForm(ModelForm):
             'desc'  : forms.Textarea(attrs={'class':'inputfield'}),
             'price' : forms.NumberInput(attrs={'class':'inputfield'}),
         }
+
+class operationsForm(ModelForm):
+    class Meta:
+        model = Destination
+        fields = '__all__'

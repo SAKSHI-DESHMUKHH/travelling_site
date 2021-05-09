@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>OurTravello</title>
+    <link rel="stylesheet" href={% static "bootstrap-3.3.7-dist/css/bootstrap.min.css" %}>
+    <link href="https://lex.infosysapps.com/authoring/content-store/content-store/Infosys/Infosys_Ltd/Public/lex_auth_01288538709749760066/web-hosted/assets/https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://lex.infosysapps.com/authoring/content-store/content-store/Infosys/Infosys_Ltd/Public/lex_auth_01288538709749760066/web-hosted/assets/https://code.jquery.com/jquery-3.4.1.min.js "></script>
+    <script src={% static "bootstrap-3.3.7-dist/js/bootstrap.min.js" %}></script>
+    <link rel="stylesheet" href={% static "css/register.css" %}>
+
+
+</head>
+
+<body>
+    <div class="header">
+
+        <!-- Collapsive Navbar -->
+
+        <div class="navbar" id="navb" align="center">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <div class="navbar-brand">
+                        Travello
+                    </div>
+                    <button class="navbar-toggle" data-toggle="collapse" data-target="#myNav">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse" id="myNav">
+                    <ul class="nav navbar-nav myNav">
+                        <a style="color:white;" href="{% url 'home' %}"><li class="underline">Home</li></a>
+                        <a style="color:white;" href=""><li class="underline">About Us</li></a>
+                        <a style="color:white;" href=""><li class="underline">Services</li></a>
+                        <a style="color:white;" href=""><li class="underline">News</li></a>
+                        <a style="color:white;" href=""><li class="underline">Contact</li></a>
+                        {% if user.is_authenticated %}
+                            <a style="color:white;"><li class="underline">{{user.first_name}}</li></a>
+                            <a style="color:white;" href="{% url 'logout' %}"><li class="underline">Logout</li></a>
+                        {% else %}
+                            
+                            <a style="color:white;" href="{% url 'register' %}"><li class="underline">Register</li></a>
+                            <a style="color:white;" href="{% url 'login_page' %}"><li class="underline">Login</li></a>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Register Form -->
+
+        <div class="container">
+            <div class="row myBox" >
+                <div class="col-md-8 col-md-offset-2">
+                    <div class="innerBox" >
+                        <div class="row">
+                            
+                            <div class="col-md-10 secondCol centre" style="opacity:100%;border-radius:50px;margin-left: 25%;width:500px;">
+                                <div class="formHead">Add Destination</div>
+                                <form method=POST action='' enctype="multipart/form-data">
+                                {% csrf_token %}
+                                {{form}}
+                                <input type="submit" name="submit">
+                                    
+                                </form>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+    <script src={% static 'js/index.js' %}></script>
+</html>
