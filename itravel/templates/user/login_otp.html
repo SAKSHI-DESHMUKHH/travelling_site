@@ -1,0 +1,15 @@
+{% extends 'user/main.html' %}
+{% load static %}
+{% block content %}
+    <div class="mt-5 otp-form shadow py-5">
+        <h5 class="py-2 px-5 text-center">An OTP has send to your registered phone number</h5>
+        <br>
+        <form method="POST" class="px-5">
+            {% csrf_token %}
+            <input type="text" name="otp" placeholder="ENter OTP here" required>
+            <button class="btn" name="otp-login">Submit</button>
+        </form>
+    </div>
+
+
+{% endblock %}

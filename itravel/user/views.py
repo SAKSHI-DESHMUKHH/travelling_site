@@ -1,7 +1,8 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.models import User,auth
 from django.contrib import messages
-from django.contrib.auth import logout
+from django.contrib.auth import logout,login
+from django.http import HttpResponse
 
 
 # Create your views here.
@@ -35,6 +36,12 @@ def user_register(request):
         return render(request,'user/register.html')
 
 def user_login(request):
+    try:
+        if request.session.get('failed') > 2:
+            return HttpResponse('<h1> You have to wait for 5 minutes to login again </h1>')
+    except:
+        request.session['failed'] = 0
+        request.session.set_expiry(100)
     if request.method=='POST':
         username=request.POST['username']
         password=request.POST['password']
@@ -65,3 +72,20 @@ def user_logout(request):
 
 def dashboard(request):
     pass
+
+def otpLogin(request):
+    if request.method == "POST":
+        username = request.session['username']
+        password = request.session['password']
+        otp = request.session.get['login_otp']
+        u_otp = request.POST['otp']
+        if int(u_otp) == otp:
+            user = auth.authenticate(request, username=username, password=password)
+            if user is not None:
+                login(request, user)
+                request.session.delete('login_otp')
+                messages.success(request, "Login successfully")
+                return redirect('/')
+            else:
+                messages.error(request, 'Wrong OTP')
+    return render(request, "login_otp.html")
